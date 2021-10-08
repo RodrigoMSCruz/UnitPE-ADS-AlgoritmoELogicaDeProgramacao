@@ -1,9 +1,8 @@
 /******************************************************************************
 Escreva um programa que armazene 6 nomes de pessoas em um array.
 Depois de armazenar os nomes, receba outro nome para procurar no array.
-Informar, conforme o caso, uma das mensagens abaixo:
-Nome encontrado na Xª posição
-Nome não encontrado
+Informar, quantas vezes o nome procurado ocorre no array
+Se o nome não for encontrado mostrar a mensagem “Nome não encontrado”.
 *******************************************************************************/
 import java.util.Scanner;
 public class Main
@@ -11,9 +10,9 @@ public class Main
 	public static void main(String[] args) {
 	    String[] nomes = new String[6];
 	    String nomeProcura;
-	    int posicao;
+	    int repetido;
 	    
-	    posicao = -1;
+	    repetido = 0;
 	    Scanner ler = new Scanner(System.in);
 	    
 	    for(int i = 0; i < nomes.length; i++){
@@ -28,15 +27,15 @@ public class Main
 	    
 	    for(int i = 0; i < nomes.length; i++){
 	       if(nomes[i].equals(nomeProcura)){
-	            posicao = i;
+	            repetido++;
 	        }//end-if
 	    }//end-for
 	    
-	    if(posicao == -1){
+	    if(repetido == 0){
 	        System.out.println("Nome não encontrado.");
-	    }
+	    }//end-if
 	    else{
-	        System.out.println("Nome encontrado na " + (posicao+1) +"ª posição.");
-	    }
+	        System.out.println("Nome encontrado " + (repetido) +" vezes.");
+	    }//end-else
 	}//end-void-main
 }//end-Main
