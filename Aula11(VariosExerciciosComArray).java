@@ -27,7 +27,7 @@ public class Main
 {
 	public static void main(String[] args) {
 		int[] numero = {8, 17, 25, 50, 14, 19, 28, 77, 85, 45};
-		int compara, x, y;
+		int compara, x, y, menor, menorAtual, maior;
 		
 		compara = x = y = 0;
 		
@@ -58,7 +58,11 @@ public class Main
 		
 		System.out.println("\n");
 		System.out.println("E:");
-		System.out.println("NÃO CONSEGUI!");
+		x = 0;
+		do{
+		    System.out.print(numero[x] + " ");
+		    x++;
+		}while(numero[x] < numero[x + 1]);
 		
 		System.out.println("\n");
 		System.out.println("F:");
@@ -99,10 +103,36 @@ public class Main
 		    x++;
 		    y++;
 		}//end-while
-		
+		menor = maior = 0;
 		System.out.println("\n");
 		System.out.println("J:");
-	    System.out.println("NÃO CONSEGUI!");
-		
-		}//end-void-main
+	    for(int i = 0; i <= 9; i++){
+	        if(i == 0){
+	            menor = numero[i];
+	            maior = numero[i];
+	        }//end-if
+	        else{
+	            if(numero[i] < menor){
+	                menor = numero[i];
+	            }//end-if
+	            if(numero[i] > maior){
+	                maior = numero[i];
+	            }//end-if
+	        }//end-else
+	    }//end-for
+	    
+	    System.out.print(menor + " ");
+	    menorAtual = maior;
+		for(int i = 0; i<= 8; i++){
+		    for(int j = 0; j <= 9; j++){
+		        if((numero[j] > menor) && (numero[j] < menorAtual)){
+		            menorAtual = numero[j];
+		        }//end-if
+		    }//end-for
+		    System.out.print(menorAtual + " ");
+		    menor = menorAtual;
+		    menorAtual = maior;
+		}//end-for
+	}//end-void-main
 }//end-class-Main
+
